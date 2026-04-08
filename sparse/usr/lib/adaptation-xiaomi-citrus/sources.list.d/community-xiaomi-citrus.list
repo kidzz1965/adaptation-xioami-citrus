@@ -1,1 +1,2 @@
 # You can add here your custom apt repositories
+deb [signed-by=/usr/share/keyrings/citrus.gpg] https://YOURREPO.TLD bookworm main
