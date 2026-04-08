@@ -1,0 +1,2 @@
+/usr/lib/adaptation-xiaomi-citrus/sources.list.d/community-xiaomi-citrus.list /etc/apt/sources.list.d/community-xiaomi-citrus.list
+/usr/lib/adaptation-xiaomi-citrus/trusted.gpg.d/community-xiaomi-citrus.gpg /etc/apt/trusted.gpg.d/community-xiaomi-citrus.gpg

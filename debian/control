@@ -1,0 +1,19 @@
+Source: adaptation-xiaomi-citrus
+Maintainer: kidzz1965 <kidzz1965@gmail.com>
+Section: metapackages
+Priority: optional
+Build-Depends: debhelper (>= 10),
+               debhelper-compat (= 13),
+Standards-Version: 4.5.0.3
+
+Package: adaptation-xiaomi-citrus
+Architecture: arm64
+Depends: ${misc:Depends},
+         adaptation-hybris-api29-phone,
+         adaptation-xiaomi-citrus-configs (= ${binary:Version}),
+Description: Community adaptation for xiaomi-citrus - metapackage
+
+Package: adaptation-xiaomi-citrus-configs
+Architecture: arm64
+Depends: ${misc:Depends},
+Description: Community adaptation for xiaomi-citrus - adaptation configurations
