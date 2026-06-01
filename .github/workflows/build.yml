@@ -1,0 +1,192 @@
+name: Build and Publish POCO M3 Adaptation
+
+on:
+  push:
+    branches: [ 'droidian-halium-13' ]
+  pull_request:
+    branches: [ 'droidian-halium-13' ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-24.04-arm
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set build metadata
+        id: vars
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - name: Install Build Tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            devscripts \
+            equivs \
+            build-essential \
+            dpkg-dev \
+            apt-utils \
+            apt
+          apt-ftparchive --version
+
+      - name: Install Dependencies
+        run: |
+          sudo mk-build-deps --install \
+            --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes' \
+            debian/control
+
+      - name: Build .deb Package
+        run: |
+          dpkg-buildpackage -us -uc -b
+          mkdir -p output
+          mv ../*.deb output/
+          mv ../*.changes output/ || true
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: adaptation-xiaomi-citrus-${{ steps.vars.outputs.date }}
+          path: output/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest-xiaomi-citrus
+          name: Latest POCO M3 FE Adaptation Build
+          body: |
+            Automated build for POCO M3 (citrus).
+            Built on: ${{ steps.vars.outputs.date }}
+            Branch: ${{ github.ref_name }}
+          files: output/*.deb
+          prerelease: true
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Import GPG key
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          echo "$GPG_PRIVATE_KEY" | gpg --import --batch
+          echo "allow-preset-passphrase" > ~/.gnupg/gpg-agent.conf
+          echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+          echo "no-tty" >> ~/.gnupg/gpg.conf
+          gpg-connect-agent reloadagent /bye
+
+      - name: Generate APT repository structure
+        env:
+          GNUPGHOME: /home/runner/.gnupg
+          GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          USER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
+        run: |
+          mkdir -p public/pool/main
+          mkdir -p public/dists/stable/main/binary-arm64
+
+          # Copy debs to pool
+          cp output/*.deb public/pool/main/
+
+          # Export public GPG key for users
+          gpg --armor --export $GPG_KEY_ID > public/citrus-repo.gpg
+
+          # Generate Packages index
+          cd public
+          dpkg-scanpackages --arch arm64 pool/main /dev/null \
+            > dists/stable/main/binary-arm64/Packages
+          gzip -k -f dists/stable/main/binary-arm64/Packages
+
+          # Generate Release file
+          cd dists/stable
+          cat << EOF > Release
+          Origin: https://$USER.github.io/$REPO
+          Label: POCO M3 Droidian
+          Suite: stable
+          Codename: stable
+          Version: 1.0
+          Architectures: arm64
+          Components: main
+          Description: Droidian adaptation packages for POCO M3
+          EOF
+
+          apt-ftparchive release . >> Release
+
+          # Sign Release with GPG
+          echo "$GPG_PASSPHRASE" | gpg --batch --yes \
+            --pinentry-mode loopback \
+            --passphrase-fd 0 \
+            --default-key $GPG_KEY_ID \
+            --clearsign -o InRelease Release
+
+          echo "$GPG_PASSPHRASE" | gpg --batch --yes \
+            --pinentry-mode loopback \
+            --passphrase-fd 0 \
+            --default-key $GPG_KEY_ID \
+            -abs -o Release.gpg Release
+
+      - name: Generate index page
+        env:
+          USER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
+        run: |
+          REPO_URL="https://$USER.github.io/$REPO"
+          cat << EOF > public/index.html
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <title>POCO M3 Droidian APT Repo</title>
+            <style>
+              body { font-family: monospace; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+              pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+              h1, h2 { font-family: sans-serif; }
+              a { color: #0066cc; }
+            </style>
+          </head>
+          <body>
+            <h1>POCO M3 Droidian APT Repository</h1>
+
+            <h2>1. Add GPG key</h2>
+            <pre>curl ${REPO_URL}/citrus-repo.gpg | sudo tee /etc/apt/trusted.gpg.d/citrus.gpg</pre>
+
+            <h2>2. Add repository</h2>
+            <pre>echo "deb ${REPO_URL} stable main" | sudo tee /etc/apt/sources.list.d/citrus.list
+          sudo apt-get update</pre>
+
+            <h2>3. Install adaptation</h2>
+            <pre>sudo apt-get install adaptation-xiaomi-citrus</pre>
+
+            <h2>Available Packages</h2>
+            <ul>
+              <li>adaptation-xiaomi-citrus</li>
+              <li>adaptation-xioami-citrus-configs</li>
+              <li>linux-bootimage-4.19.325-xiaomi-citrus</li>
+              <li>linux-bootimage-xiaomi-citrus</li>
+              <li>linux-headers-4.19.325-xiaomi-citrus</li>
+              <li>linux-headers-xiaomi-citrus</li>
+              <li>linux-image-4.19.325-xiaomi-citrus</li>
+              <li>linux-image-xiaomi-citrus</li>
+            </ul>
+
+            <h2>Direct Download</h2>
+            <p>Packages are also available as direct downloads on the
+            <a href="https://github.com/$USER/$REPO/releases/tag/latest-samsung-s20fe">
+            GitHub Releases page</a>.</p>
+          </body>
+          </html>
+          EOF
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          force_orphan: true

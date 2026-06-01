@@ -1,0 +1,5 @@
+adaptation-xiaomi-citrus (1.0-1) bookworm; urgency=medium
+
+            * Initial automated build for Droidian.
+
+           -- Kidzz <kidzz@droidian.org>  $TIMESTAMP
