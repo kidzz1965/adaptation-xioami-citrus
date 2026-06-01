@@ -1,2 +1,2 @@
 # You can add here your custom apt repositories
-deb [signed-by=/usr/share/keyrings/citrus.gpg] https://gitlab.com/chime-linux/adaptation-xiaomi-citrus.git stable main
+deb [trusted=yes] https://kidzz1965.github.io/adaptation-xioami-citrus stable main
