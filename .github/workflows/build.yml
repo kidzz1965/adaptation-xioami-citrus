@@ -47,6 +47,7 @@ jobs:
         run: |
           dpkg-buildpackage -us -uc -b
           mkdir -p output
+          mv *.deb output/
           mv ../*.deb output/
           mv ../*.changes output/ || true
 
