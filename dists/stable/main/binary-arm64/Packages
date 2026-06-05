@@ -1,0 +1,168 @@
+Package: adaptation-xiaomi-citrus
+Version: 1.0-1
+Architecture: arm64
+Maintainer: kidzz1965 <kidzz1965@gmail.com>
+Installed-Size: 9
+Depends: adaptation-hybris-api29-phone, adaptation-xiaomi-citrus-configs (= 1.0-1)
+Filename: pool/main/adaptation-xiaomi-citrus_1.0-1_arm64.deb
+Size: 1952
+MD5sum: 9d8a11df6e48ccde13f6264e6bb9e562
+SHA1: f288b6ad4d8164ee68bafa6c28be7129ca02059f
+SHA256: 5b589d5815e31652d6d451d9386bfd5583f9728f178d08ca0ed4ae8e6e475e80
+Section: metapackages
+Priority: optional
+Description: Community adaptation for xiaomi-citrus - metapackage
+
+Package: adaptation-xiaomi-citrus-build-deps
+Version: 1.0-1
+Architecture: all
+Maintainer: Equivs Dummy Package Generator <root@runnervmfoai2.ww3fxjpxopae5iu41fpnyzhw2d.cx.internal.cloudapp.net>
+Installed-Size: 9
+Depends: build-essential:arm64, debhelper (>= 10), debhelper-compat (= 13)
+Filename: pool/main/adaptation-xiaomi-citrus-build-deps_1.0-1_all.deb
+Size: 2110
+MD5sum: 9eca078c14e5e5c1d3d15434e6fe98e0
+SHA1: ff4e1fdc906e09c549272818fd15a819e73adc99
+SHA256: 6c743f3ed1aa0f56d8079b0ed863664d588ea275739a9f6a13cbce750cee786f
+Section: devel
+Priority: optional
+Multi-Arch: foreign
+Description: build-dependencies for adaptation-xiaomi-citrus
+ Dependency package to build the 'adaptation-xiaomi-citrus' package
+
+Package: adaptation-xiaomi-citrus-configs
+Source: adaptation-xiaomi-citrus
+Version: 1.0-1
+Architecture: arm64
+Maintainer: kidzz1965 <kidzz1965@gmail.com>
+Installed-Size: 21
+Filename: pool/main/adaptation-xiaomi-citrus-configs_1.0-1_arm64.deb
+Size: 2300
+MD5sum: ba5196ec445bcf5916718f15b6bfb074
+SHA1: 53f6e4eaf216e7ffdf22b7cfe30e751cce6950a3
+SHA256: e3ed45b8af1ec961feb494668d2202d63fc732954bcb51ad203efa00a31236e1
+Section: metapackages
+Priority: optional
+Description: Community adaptation for xiaomi-citrus - adaptation configurations
+
+Package: linux-bootimage-4.19-0-xiaomi-citrus
+Source: linux-android-xiaomi-citrus
+Version: 0.0.0+git20220627210222.d8d20ea.droidian
+Architecture: arm64
+Maintainer: Droidian porters <info@droidian.org>
+Installed-Size: 262315
+Pre-Depends: flash-bootimage (>= 4)
+Depends: linux-image-4.19-0-xiaomi-citrus (= 0.0.0+git20220627210222.d8d20ea.droidian)
+Filename: pool/main/linux-bootimage-4.19-0-xiaomi-citrus_0.0.0+git20220627210222.d8d20ea.droidian_arm64.deb
+Size: 57015772
+MD5sum: a9e02ea7ee236ad6feb29fdffb919385
+SHA1: df7d68175e9b123f724537d732bb21a1671d613f
+SHA256: f465a5a36d1f917c982f8da09bff738f77f05d4378f35057be88bee52e010507
+Section: kernel
+Priority: optional
+Description: Linux kernel for POCO M3 - Android Boot Image
+ This package contains the Linux kernel for the POCO M3 device.
+ .
+ Note: This package ships an Android Boot Image bundled with Halium's
+ initramfs.
+X-Droidian-Vcs-Revision: d8d20eaa26c5c9c98b47564a2e040b9112b327ec
+X-Droidian-Vcs-Url: https://gitlab.com/ubports/porting/community-ports/android10/xiaomi-poco-m3/kernel-xiaomi-sm6115.git
+
+Package: linux-bootimage-xiaomi-citrus
+Source: linux-android-xiaomi-citrus
+Version: 0.0.0+git20220627210222.d8d20ea.droidian
+Architecture: arm64
+Maintainer: Droidian porters <info@droidian.org>
+Installed-Size: 7
+Depends: linux-bootimage-4.19-0-xiaomi-citrus (= 0.0.0+git20220627210222.d8d20ea.droidian)
+Filename: pool/main/linux-bootimage-xiaomi-citrus_0.0.0+git20220627210222.d8d20ea.droidian_arm64.deb
+Size: 1352
+MD5sum: dba0d3eb0ef5b0db17c796051540c5f3
+SHA1: f406340616582d4186fd693ef60f5f11c0dae4a2
+SHA256: d30f1cf6ee0945131ad297a0bec84efd840e37159005d3871c76fe8cf487f152
+Section: kernel
+Priority: optional
+Description: Linux kernel for POCO M3 - Android Boot Image  (latest)
+ This package depends to the latest kernel bootimage available for the POCO M3.
+X-Droidian-Vcs-Revision: d8d20eaa26c5c9c98b47564a2e040b9112b327ec
+X-Droidian-Vcs-Url: https://gitlab.com/ubports/porting/community-ports/android10/xiaomi-poco-m3/kernel-xiaomi-sm6115.git
+
+Package: linux-headers-4.19-0-xiaomi-citrus
+Source: linux-android-xiaomi-citrus
+Version: 0.0.0+git20220627210222.d8d20ea.droidian
+Architecture: arm64
+Maintainer: Droidian porters <info@droidian.org>
+Installed-Size: 55547
+Depends: linux-image-4.19-0-xiaomi-citrus (= 0.0.0+git20220627210222.d8d20ea.droidian)
+Filename: pool/main/linux-headers-4.19-0-xiaomi-citrus_0.0.0+git20220627210222.d8d20ea.droidian_arm64.deb
+Size: 8693476
+MD5sum: b49a6c93c0434f648513d2ed9efe1ea3
+SHA1: f9e6adf176ae2246c1688c94f8b516e1c6a2538d
+SHA256: 90994cef18988d06dce4e8462ca2b95089d553156f6d6b630d941997403495c3
+Section: kernel
+Priority: optional
+Description: Linux kernel for POCO M3 - Headers
+ This package contains the Linux kernel headers for the POCO M3 device.
+X-Droidian-Vcs-Revision: d8d20eaa26c5c9c98b47564a2e040b9112b327ec
+X-Droidian-Vcs-Url: https://gitlab.com/ubports/porting/community-ports/android10/xiaomi-poco-m3/kernel-xiaomi-sm6115.git
+
+Package: linux-headers-xiaomi-citrus
+Source: linux-android-xiaomi-citrus
+Version: 0.0.0+git20220627210222.d8d20ea.droidian
+Architecture: arm64
+Maintainer: Droidian porters <info@droidian.org>
+Installed-Size: 7
+Depends: linux-headers-4.19-0-xiaomi-citrus (= 0.0.0+git20220627210222.d8d20ea.droidian)
+Filename: pool/main/linux-headers-xiaomi-citrus_0.0.0+git20220627210222.d8d20ea.droidian_arm64.deb
+Size: 1340
+MD5sum: aa83ee3b7955f05c927b5ca98aa803f8
+SHA1: d84dcafa17ee7c0d577a501a7ccb9a325a5fdc09
+SHA256: c75be0f4f9c9715e2c46adea96f31e5548ca893902612a14a0cb2bf61acb89d4
+Section: kernel
+Priority: optional
+Description: Linux kernel for POCO M3 - Headers (latest)
+ This package depends to the latest kernel headers available for the POCO M3.
+X-Droidian-Vcs-Revision: d8d20eaa26c5c9c98b47564a2e040b9112b327ec
+X-Droidian-Vcs-Url: https://gitlab.com/ubports/porting/community-ports/android10/xiaomi-poco-m3/kernel-xiaomi-sm6115.git
+
+Package: linux-image-4.19-0-xiaomi-citrus
+Source: linux-android-xiaomi-citrus
+Version: 0.0.0+git20220627210222.d8d20ea.droidian
+Architecture: arm64
+Maintainer: Droidian porters <info@droidian.org>
+Installed-Size: 18309
+Filename: pool/main/linux-image-4.19-0-xiaomi-citrus_0.0.0+git20220627210222.d8d20ea.droidian_arm64.deb
+Size: 12774256
+MD5sum: deb01494b16339da42fb4e1415806d90
+SHA1: 2ce8f2f67949ee45251cb2ee42ce8eab32bcc90e
+SHA256: 94a6d6ba6efb55537937b1f8ee2e9378e91700478f2e2f00c391aa5f0963f1f9
+Section: kernel
+Priority: optional
+Description: Linux kernel for POCO M3
+ This package contains the Linux kernel for the POCO M3 device.
+ .
+ Note: This package only ships the kernel image and modules, you should probably
+ look at the linux-bootimage-4.19-0-xiaomi-citrus package for a bootimage suitable
+ for Android boot loaders.
+X-Droidian-Vcs-Revision: d8d20eaa26c5c9c98b47564a2e040b9112b327ec
+X-Droidian-Vcs-Url: https://gitlab.com/ubports/porting/community-ports/android10/xiaomi-poco-m3/kernel-xiaomi-sm6115.git
+
+Package: linux-image-xiaomi-citrus
+Source: linux-android-xiaomi-citrus
+Version: 0.0.0+git20220627210222.d8d20ea.droidian
+Architecture: arm64
+Maintainer: Droidian porters <info@droidian.org>
+Installed-Size: 7
+Depends: linux-image-4.19-0-xiaomi-citrus (= 0.0.0+git20220627210222.d8d20ea.droidian)
+Filename: pool/main/linux-image-xiaomi-citrus_0.0.0+git20220627210222.d8d20ea.droidian_arm64.deb
+Size: 1328
+MD5sum: e1833fef41e7ef84f6345251d99fad16
+SHA1: 81dc4839a34c8964d910c58cb591e7aecec12a3c
+SHA256: 9f9bdc6e043fe03220250fe528c81c7d7c8bf329e9d2cd81d2612cf12c2d4cbe
+Section: kernel
+Priority: optional
+Description: Linux kernel for POCO M3 (latest)
+ This package depends to the latest kernel image available for the POCO M3.
+X-Droidian-Vcs-Revision: d8d20eaa26c5c9c98b47564a2e040b9112b327ec
+X-Droidian-Vcs-Url: https://gitlab.com/ubports/porting/community-ports/android10/xiaomi-poco-m3/kernel-xiaomi-sm6115.git
+

@@ -1,0 +1,44 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: https://kidzz1965.github.io/adaptation-xioami-citrus
+Label: POCO M3 Droidian
+Suite: stable
+Codename: stable
+Version: 1.0
+Architectures: arm64
+Components: main
+Description: Droidian adaptation packages for POCO M3
+Date: Fri, 05 Jun 2026 15:54:23 +0000
+MD5Sum:
+ 3b6f5bb517f90d6b1fe3099b2500d4ac              259 Release
+ a501e95de720b0c815c6d149ec30e1c0             7602 main/binary-arm64/Packages
+ 226ecdded8dd9858fe3371078b1287a9             1965 main/binary-arm64/Packages.gz
+SHA1:
+ e19704cf4d1896197dd4d338a99af4ccfa5efb9e              259 Release
+ 489c347d47bf0aeb951cd06dde6b976ebf79cd7a             7602 main/binary-arm64/Packages
+ dab8822103d18509f48e090b9ea3660a752a0730             1965 main/binary-arm64/Packages.gz
+SHA256:
+ 57daeab9467ff0971cb6ad8106efd28e281763a85a9e8d50ff0244c368401a4e              259 Release
+ 5bb8a92804a67d77677c33e42d090837f6ed351eb174b99e95d10b4309255ba0             7602 main/binary-arm64/Packages
+ 273c9ecca68ed49c10ce638cb734d44e2f6465d3c216fa52cfca544d7e99d6b3             1965 main/binary-arm64/Packages.gz
+SHA512:
+ d524bbf26290d9ee58ebe78862677d16173c3c69b10185809cdd7bb9e78873bbd15adeb0c8a71f75d24f7d02a93bb1972aab4c204173edf5736f797e001096bc              259 Release
+ 244516e0414d711618ffcc9754b321fa0d49568488cfbcd6f0e2e5f964c76ad465ba26645ea09c46ad8550e623cd2ba8a6bef9f6d0d6a7a58983aed6b9fe856d             7602 main/binary-arm64/Packages
+ a68d702a8a762d2e196a9f26b55f462fe22e2dc6b7713650903622477168eba647615085507b31af645b239e5124424b0d79807e5394547d9e2be44805ab3e13             1965 main/binary-arm64/Packages.gz
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEgDlaCgfWcSRxsSngTL9NVW1xCAcFAmoi8S8ACgkQTL9NVW1x
+CAcjixAAwogRqz83heHXqCAA4h+Ytn1qrH3mTUdosTC2nNIw3ehplr1iiDQGItvQ
+hg1pjkivJWijXCz5m/s5ysR6gBSZG289ajMJjzMetRS6B1zT6LmD6IPRYEE7MZtU
+sZtoQNDc1ohXF1Sd0axcyo07Ch10O3mWnX8s/LWh/fIOOBCGTpd8AxlkIF17kO/8
+Ptraiz5IqrrNciWl/2Tjoe/pP8X6PuTCnVy0UKNiouIQwGx+KTlIEIrYxSP0SJFa
+w8DGuuLkiwlBx7wBLqjJYLHT6yAx3JSaIVVXVv2SjlfgiHaUYK5SRbDGSzsWrEff
+ze3/9LcAdk6nqP3yjkR6IUSwHi1BwvVjEo7DCoHBvlvB88ruVBKZRXkG3HI0CK8a
+E+sJeFShYRkV20ecFBjqsIAsjmY6qWCSJR+4a/pn7dBvcwzu9Pl53bsBwHlEAmmo
+zRDuNMGDIkiNMADh8A/3nBG1BnufdMe59sYWYgLsblqZ+iatGfNrUY+N+uEppE1/
+NaL5cKmL5KRrSdWtkrIxVaJ1kBfKVahyZ3OyzSig5aXhm2ovxjit3ipM5gyxr4vb
+Nli7UI3cRw8XYbJpF6JjDkWpglT0twlczVNybT34aYaJA1hH7HtmXFF5yusWKpSJ
+tAciChwvgYjdoV3B4EH7gULnC08nivNKp6Z61ma5nJwaIxLzbB0=
+=1fxL
+-----END PGP SIGNATURE-----

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>POCO M3 Droidian APT Repo</title>
+  <style>
+    body { font-family: monospace; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+    pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+    h1, h2 { font-family: sans-serif; }
+    a { color: #0066cc; }
+  </style>
+</head>
+<body>
+  <h1>POCO M3 Droidian APT Repository</h1>
+
+  <h2>1. Add GPG key</h2>
+  <pre>curl https://kidzz1965.github.io/adaptation-xioami-citrus/citrus-repo.gpg | sudo tee /etc/apt/trusted.gpg.d/citrus.gpg</pre>
+
+  <h2>2. Add repository</h2>
+  <pre>echo "deb https://kidzz1965.github.io/adaptation-xioami-citrus stable main" | sudo tee /etc/apt/sources.list.d/citrus.list
+sudo apt-get update</pre>
+
+  <h2>3. Install adaptation</h2>
+  <pre>sudo apt-get install adaptation-xiaomi-citrus</pre>
+
+  <h2>Available Packages</h2>
+  <ul>
+    <li>adaptation-xiaomi-citrus</li>
+    <li>adaptation-xioami-citrus-configs</li>
+    <li>linux-bootimage-4.19.325-xiaomi-citrus</li>
+    <li>linux-bootimage-xiaomi-citrus</li>
+    <li>linux-headers-4.19.325-xiaomi-citrus</li>
+    <li>linux-headers-xiaomi-citrus</li>
+    <li>linux-image-4.19.325-xiaomi-citrus</li>
+    <li>linux-image-xiaomi-citrus</li>
+  </ul>
+
+  <h2>Direct Download</h2>
+  <p>Packages are also available as direct downloads on the
+  <a href="https://github.com/kidzz1965/adaptation-xioami-citrus/releases/tag/latest-samsung-s20fe">
+  GitHub Releases page</a>.</p>
+</body>
+</html>
